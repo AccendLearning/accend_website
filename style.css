@@ -1,5 +1,95 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+/* Contact Modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-box {
+  background: #1F2937;
+  color: #F9FAF8;
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+.modal-box h2 {
+  margin-top: 0;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #F9FAF8;
+  font-size: 24px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-box label {
+  display: block;
+  margin-top: 16px;
+  margin-bottom: 6px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.modal-box input,
+.modal-box textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #374151;
+  background: #111827;
+  color: #F9FAF8;
+  font-family: inherit;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.modal-box input:focus,
+.modal-box textarea:focus {
+  outline: none;
+  border-color: #6366F1;
+}
+
+.modal-send-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: #6366F1;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.modal-send-btn:hover {
+  background: #4F46E5;
+}
+
+.footer {
+  cursor: pointer;
+}
 
 body {
   margin: 0;
@@ -14,15 +104,25 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1F2937;
-  color: #F9FAF8;
-  padding: 24px 116px 64px 116px;
+  background-color: #FFFFFF;
+  color: #111827;
+  padding: 16px 116px;
 
+}
+
+.header a {
+  color: #111827;
 }
 
 .right-links {
   display: flex;
   gap: 16px;
+}
+
+.header-logo {
+  height: 2em;
+  width: auto;
+  display: block;
 }
 
 /* App Introduction */
@@ -129,6 +229,105 @@ a {
   font-size: 15px;
   color: #6b7280;
   margin-bottom: 28px;
+}
+
+.screenshots-section {
+  width: 100vw;
+  max-width: none;
+  margin-top: 40px;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 28px;
+  border-radius: 0;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  box-shadow: 0 18px 40px rgba(2, 6, 23, 0.45);
+}
+
+.screenshots-title {
+  margin: 0;
+  font-size: 30px;
+  color: #f8fafc;
+}
+
+.screenshots-subtitle {
+  margin-top: 8px;
+  margin-bottom: 20px;
+  color: #cbd5e1;
+}
+
+.shots-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(260px, 32%);
+  gap: 18px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-snap-type: x mandatory;
+}
+
+.shot-card {
+  margin: 0;
+  padding: 14px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid #dbe3ee;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+  text-align: left;
+  scroll-snap-align: start;
+}
+
+.shots-track::-webkit-scrollbar {
+  height: 10px;
+}
+
+.shots-track::-webkit-scrollbar-track {
+  background: #e2e8f0;
+  border-radius: 999px;
+}
+
+.shots-track::-webkit-scrollbar-thumb {
+  background: #64748b;
+  border-radius: 999px;
+}
+
+.shot-step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: #111827;
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.shot-image {
+  width: 100%;
+  height: clamp(240px, 38vw, 420px);
+  object-fit: contain;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.shot-card figcaption {
+  margin-top: 12px;
+}
+
+.shot-title {
+  margin: 0;
+  color: #0f172a;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.shot-desc {
+  margin: 8px 0 0;
+  color: #334155;
+  font-size: 14px;
+  line-height: 1.45;
 }
 
 .feats {
@@ -279,5 +478,13 @@ a {
   .desc_image {
     max-width: 420px;
     width: 100%;
+  }
+
+  .shots-track {
+    grid-auto-columns: minmax(240px, 84%);
+  }
+
+  .screenshots-section {
+    padding: 20px;
   }
 }

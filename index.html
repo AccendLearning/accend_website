@@ -13,10 +13,10 @@
 
 
     <div class="header">
-        <img src="./logo.png" style="font-size: 20px; font-weight: 800;" alt="Business Logo">
+        <img src="./img/accend_logo.png" class="header-logo" alt="Business Logo">
 
         <ul class="right-links">
-            <li><a href="#">header link one</a></li>
+            <li><a href="https://github.com/AccendLearning/Accend.git" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.371 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>Github</a></li>
             <li><a href="#">header link two</a></li>
             <li><a href="#">header link three</a></li>
         </ul>
@@ -61,6 +61,76 @@
             </div>
         </div>
     </div>
+
+    <section class="screenshots-section" aria-label="App Screenshots">
+        <h2 class="screenshots-title">Built So Far</h2>
+        <p class="screenshots-subtitle">A visual walkthrough of the product, from home screen to room setup.</p>
+
+        <div class="shots-track">
+            <figure class="shot-card">
+                <span class="shot-step">01</span>
+                <img src="./img/home_page.png" alt="Home page screenshot" class="shot-image">
+                <figcaption>
+                    <h3 class="shot-title">Home</h3>
+                    <p class="shot-desc">Your launch point for learning. The Home screen is designed for instant continuity. Users can hop straight back into their previous lesson or activity without extra steps.</p>
+                </figcaption>
+            </figure>
+
+            <figure class="shot-card">
+                <span class="shot-step">02</span>
+                <img src="./img/profile-page.png" alt="Profile page screenshot" class="shot-image">
+                <figcaption>
+                    <h3 class="shot-title">My Profile</h3>
+                    <p class="shot-desc">An overview of identity and growth. Shows personal details, achievements, and activity in one space.</p>
+                </figcaption>
+            </figure>
+
+            <figure class="shot-card">
+                <span class="shot-step">03</span>
+                <img src="./img/following_page.png" alt="Following page screenshot" class="shot-image">
+                <figcaption>
+                    <h3 class="shot-title">Social</h3>
+                    <p class="shot-desc">Stay connected to your learning circle. Implements a followers system that makes it easy to browse updates from people you follow and keep up with their momentum.</p>
+                </figcaption>
+            </figure>
+
+            <figure class="shot-card">
+                <span class="shot-step">04</span>
+                <img src="./img/user_three.png" alt="User three screenshot" class="shot-image">
+                <figcaption>
+                    <h3 class="shot-title">Friend Profile Preview</h3>
+                    <p class="shot-desc">Get a fast look at a friend&rsquo;s profile.</p>
+                </figcaption>
+            </figure>
+
+            <figure class="shot-card">
+                <span class="shot-step">05</span>
+                <img src="./img/generate_course.png" alt="Generate course screenshot" class="shot-image">
+                <figcaption>
+                    <h3 class="shot-title">Generate Courses</h3>
+                    <p class="shot-desc">A guided popup that helps users start a custom course in seconds.</p>
+                </figcaption>
+            </figure>
+
+            <figure class="shot-card">
+                <span class="shot-step">06</span>
+                <img src="./img/room_type.png" alt="Room type screenshot" class="shot-image">
+                <figcaption>
+                    <h3 class="shot-title">Room Type Selection</h3>
+                    <p class="shot-desc">The Group Session screen lets users choose between Public and Private rooms, making it easy to host open discussions or focused invite-only practice.</p>
+                </figcaption>
+            </figure>
+
+            <figure class="shot-card">
+                <span class="shot-step">07</span>
+                <img src="./img/choose_lesson.png" alt="Choose lesson screenshot" class="shot-image">
+                <figcaption>
+                    <h3 class="shot-title">Choose Lesson Screen</h3>
+                    <p class="shot-desc">Pick the right lesson at the right time. The selection interface is designed to help users quickly find the right topic for the day.</p>
+                </figcaption>
+            </figure>
+        </div>
+    </section>
 
     <div class="features">
         <h2 class="features-title">Planned Features</h2>
@@ -126,7 +196,29 @@
             </div>
         </div>
 
-        <a href="" target="_blank" rel="noopener noreferrer"><div class="footer">Contact us</div>
+        <div class="footer" onclick="openContactModal()">Contact us</div>
     </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal-overlay" onclick="closeContactModal(event)">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeContactModal()">&times;</button>
+            <h2>Contact Us</h2>
+            <p>Send us a message and we'll get back to you.</p>
+            <form id="contactForm" onsubmit="sendEmail(event)">
+                <label for="contactName">Name</label>
+                <input type="text" id="contactName" placeholder="Your name" required />
+
+                <label for="contactEmail">Your Email</label>
+                <input type="email" id="contactEmail" placeholder="your@email.com" required />
+
+                <label for="contactMessage">Message</label>
+                <textarea id="contactMessage" rows="5" placeholder="Write your message here..." required></textarea>
+
+                <button type="submit" class="modal-send-btn">Send Email</button>
+            </form>
+        </div>
+    </div>
+
 </body>
 </html>

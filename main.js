@@ -46,3 +46,29 @@ function showSlides(n) {
   slides[slideIndex - 1].style.display = "block";
   if (dots[slideIndex - 1]) dots[slideIndex - 1].classList.add("active");
 }
+
+// Contact Modal
+function openContactModal() {
+  document.getElementById("contactModal").classList.add("active");
+}
+
+function closeContactModal(event) {
+  const modal = document.getElementById("contactModal");
+  if (!event || event.target === modal) {
+    modal.classList.remove("active");
+    document.getElementById("contactForm").reset();
+  }
+}
+
+function sendEmail(event) {
+  event.preventDefault();
+  const name = document.getElementById("contactName").value.trim();
+  const replyTo = document.getElementById("contactEmail").value.trim();
+  const message = document.getElementById("contactMessage").value.trim();
+
+  const subject = encodeURIComponent("Message from " + name + " via Accend Website");
+  const body = encodeURIComponent(message + "\n\nReply to: " + replyTo);
+
+  window.location.href = "mailto:accendlearning@outlook.com?subject=" + subject + "&body=" + body;
+  closeContactModal();
+}
